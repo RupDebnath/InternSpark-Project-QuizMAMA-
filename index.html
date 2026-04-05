@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ultimate Quiz App</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>🚀 Welcome  To ℚ𝕦𝕚𝕫𝕄𝔸𝕄𝔸</h1>
+  <p>
+    Challenge yourself with exciting quizzes across multiple topics—
+     You have just 10 seconds… can you beat it?
+  </p>
+</header>
+
+<main>
+
+<!-- Working Language Translator -->
+<div id="google_translate_element"></div>
+
+<script>
+  function loadTranslator() {
+    var script = document.createElement('script');
+    script.src = "https://cdn.gtranslate.net/widgets/latest/float.js";
+    document.body.appendChild(script);
+
+    window.gtranslateSettings = {
+      default_language: "en",
+      languages: ["en", "hi", "bn", "fr", "de", "es"], 
+      wrapper_selector: "#google_translate_element"
+    };
+  }
+  loadTranslator();
+</script>
+
+
+
+  <!-- START SCREEN -->
+  <section id="startScreen" class="screen active">
+    <h2>Start Your Quiz</h2>
+    <input id="username" type="text" placeholder="Enter  YourName">
+    <input id="age" type="number" placeholder="Enter Your Age">
+    <button type="button" onclick="goToSubjects()">Next</button>
+  </section>
+
+  <!-- SUBJECT SELECTION -->
+  <section id="subjectScreen" class="screen">
+    <h2>Select Your Subject</h2>
+    <button type="button" onclick="selectSubject('math')">Math</button>
+    <button type="button" onclick="selectSubject('science')"> Physical Science</button>
+    <button type="button" onclick="selectSubject('cs')">Computer Science</button>
+    <button type="button" onclick="selectSubject('gk')">GK</button>
+    <button type="button" onclick="selectSubject('sports')">Sports</button>
+  </section>
+
+  <!-- LEVEL SELECTION -->
+  <section id="levelScreen" class="screen">
+    <h2>Select Your Intelligence Level</h2>
+    <button type="button" onclick="startQuiz('easy')">Easy</button>
+    <button type="button" onclick="startQuiz('medium')">Medium</button>
+    <button type="button" onclick="startQuiz('hard')">Hard</button>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="quizScreen" class="screen">
+    <!-- LEVEL TAG -->
+    <h3 id="levelTag" class="level-tag">Level</h3>
+
+    <!-- TIMER -->
+    <div class="top">
+      <span id="timer">⏱ 10</span>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar">
+      <div id="progress"></div>
+    </div>
+
+    <!-- QUESTION -->
+    <h2 id="question">Loading question...</h2>
+
+    <!-- ANSWERS -->
+    <div id="answers"></div>
+
+    <!-- NEXT BUTTON -->
+    <button type="button" id="nextBtn">Next</button>
+  </section>
+
+  <!-- RESULT SCREEN -->
+  <section id="resultScreen" class="screen"></section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
